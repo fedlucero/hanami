@@ -2,7 +2,7 @@ var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
 function random(min, max) {
-  return Math.floor((fxrand() * (max - min + 1)) + min);
+  return Math.floor((Math.random() * (max - min + 1)) + min);
 }
 
 
@@ -29,7 +29,7 @@ const colors17 = ["#e5d9f2"]//rosa
 
 
 function randomFromList(items){
-    return items[Math.floor(fxrand()*items.length)];
+    return items[Math.floor(Math.random()*items.length)];
     }
 
 
@@ -40,13 +40,13 @@ const coloresHojas = [ colors12,colors13,colors14,colors15,colors16,colors17]
 const colorHojas = randomFromList(coloresHojas)
 
 
+generate()
 
-
-
+function generate(){
 drawBackground();
 drawGrass(centerX,900, 100, -Math.PI / 2, 13,2);
 drawTree(centerX,870, 85, -Math.PI / 2, 15,8);
-
+}
 
 
 
@@ -79,12 +79,12 @@ function drawGrass(centerX, inY, length, angle, depth, branchWidth) {
   if(!newDepth) {
     return;
   }
-  subBranches = (fxrand() * (maxBranch -q)) +q;
+  subBranches = (Math.random() * (maxBranch -q)) +q;
   branchWidth *= 0.8;
 
   for (var i = 0; i < subBranches; i++) {
-    newAngle = -angle + fxrand() * maxAngle - maxAngle * 0.5;
-    newLength = length * (0.7 + fxrand() * 0.3);
+    newAngle = -angle + Math.random() * maxAngle - maxAngle * 0.5;
+    newLength = length * (0.7 + Math.random() * 0.3);
     
     drawGrass(endX, endY, newLength, newAngle, newDepth, branchWidth);
   }
@@ -123,12 +123,12 @@ function drawTree(centerX, inY, length, angle, depth, branchWidth) {
   if(!newDepth) {
     return;
   }
-  subBranches = (fxrand() * (maxBranch -q)) +q;
+  subBranches = (Math.random() * (maxBranch -q)) +q;
   branchWidth *= 0.8;
 
   for (var i = 0; i < subBranches; i++) {
-    newAngle = angle + fxrand() * maxAngle - maxAngle * 0.5;
-    newLength = length * (0.7 + fxrand() * 0.3);
+    newAngle = angle + Math.random() * maxAngle - maxAngle * 0.5;
+    newLength = length * (0.7 + Math.random() * 0.3);
     
     drawTree(endX, endY, newLength, newAngle, newDepth, branchWidth);
   }
